@@ -1,0 +1,56 @@
+
+.info {
+}
+
+.weather-list-item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 10px 0;
+  margin: 10px 0;
+  transition-duration: 1000ms;
+  align-items: center;
+}
+
+.weather-list-item:hover {
+  background: white !important;
+}
+
+.weather-list-item p{
+  text-align: center;
+}
+
+.info {
+  text-align: center;
+  padding: 20px;
+  font-size: 2em;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+
+}
+
+.weather-container {
+  background: url(/pexels-vovkapanda-20070351.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.btn{
+  border: none;
+  width: 100vw;
+  height: 60px;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.weather-icon{
+  margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .weather-list-item {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 15px;
+  }
+}
+
