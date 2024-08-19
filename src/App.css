@@ -1,12 +1,8 @@
-
-.info {
-}
-
 .weather-list-item {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   padding: 10px 0;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   transition-duration: 1000ms;
   align-items: center;
 }
@@ -15,7 +11,7 @@
   background: white !important;
 }
 
-.weather-list-item p{
+.weather-list-item p {
   text-align: center;
 }
 
@@ -34,7 +30,7 @@
   background-repeat: no-repeat;
 }
 
-.btn{
+.btn {
   border: none;
   width: 100vw;
   height: 60px;
@@ -42,7 +38,7 @@
   background-color: #ffffff;
 }
 
-.weather-icon{
+.weather-icon {
   margin: auto;
 }
 
@@ -53,4 +49,3 @@
     row-gap: 15px;
   }
 }
-

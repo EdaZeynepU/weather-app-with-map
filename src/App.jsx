@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import OpenMap from "./components/openMap";
 import API from "./api";
+import WeatherListItem from "./components/WeatherListItem";
 function App() {
   const [location, setLocation] = useState(null);
   const [data, setData] = useState({});
@@ -114,37 +115,8 @@ function App() {
                 const gradient = getWeatherGradient(
                   Math.round(wList.main.temp - 273)
                 );
-
                 return (
-                  <div
-                    className="weather-list-item"
-                    style={{
-                      background: `linear-gradient(to right ${gradient} )`,
-                    }}
-                    key={index}
-                  >
-                    <div>
-                      <p>
-                        {date.getDate()}-{date.getMonth() + 1}-
-                        {date.getFullYear()}
-                      </p>
-                      <p>
-                        {" "}
-                        {date.getHours().toString().padStart(2, "0")}:
-                        {date.getMinutes().toString().padStart(2, "0")}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p>{wList.weather[0].main}</p>
-                      <p>{wList.weather[0].description}</p>
-                    </div>
-
-                    <p>{Math.round(wList.main.temp - 273)}°</p>
-                    <p>feels like {Math.round(wList.main.feels_like - 273)}°</p>
-                    <p>wind speed {wList.wind.speed}</p>
-                    <img src={iconurl} className="weather-icon" />
-                  </div>
+                  <WeatherListItem gradient={gradient} iconurl={iconurl} index={index} key={index} wList={wList} date={date}  />
                 );
               })}
             </div>
