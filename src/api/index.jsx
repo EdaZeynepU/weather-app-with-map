@@ -1,8 +1,5 @@
 import PropTypes from "prop-types";
 
-
-// const apiKey = "2183f46ee5d8c23c3290ac7cd4433027";
-
 const API = {
     getWeather: async (location) => {
             const resp = await fetch(
