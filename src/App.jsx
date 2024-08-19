@@ -10,9 +10,7 @@ function App() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log("hello");
           const coords = [position.coords.latitude, position.coords.longitude];
-          console.log("coords", coords);
 
           setLocation(coords);
           handleWeather(coords);
@@ -29,27 +27,61 @@ function App() {
   }, []);
 
   function getWeatherGradient(tempCelsius) {
-    console.log(tempCelsius);
-
     if (tempCelsius <= 0) {
-      return ",rgba("+(50 + tempCelsius/2) +","+ (110+tempCelsius) +","+(200-tempCelsius/2)+", 1),rgba(110, 160, 210, 0.8)";
-    } if (tempCelsius <= 10) {
-      return ",rgba("+(100 - tempCelsius*3) +","+ (160-tempCelsius) +","+(200+tempCelsius)+", 1),rgba(230, 230, 250, 0.8)";
+      return (
+        ",rgba(" +
+        (50 + tempCelsius / 2) +
+        "," +
+        (110 + tempCelsius) +
+        "," +
+        (200 - tempCelsius / 2) +
+        ", 1),rgba(110, 160, 210, 0.8)"
+      );
     }
-    else if (tempCelsius >= 40){
-      return ",rgba("+(230 + tempCelsius/4 ) +","+ (130-tempCelsius*2) +","+(130-tempCelsius*2)+", 1),rgba(255, 200, 152,0.8)";
-    }
-    else if (tempCelsius >= 25) {
-      return ",rgba("+(130 + tempCelsius*3) +","+ (230-tempCelsius*3) +","+(200-tempCelsius*4)+", 1),rgba(255, 230, 192,0.8)";
-    }  else {
-      return ",rgba("+(20+tempCelsius*6) +","+ (190+tempCelsius) +","+(200 - tempCelsius*6)+", 1),rgba(180, 250, 180, 0.8)";
-
+    if (tempCelsius <= 10) {
+      return (
+        ",rgba(" +
+        (100 - tempCelsius * 3) +
+        "," +
+        (160 - tempCelsius) +
+        "," +
+        (200 + tempCelsius) +
+        ", 1),rgba(230, 230, 250, 0.8)"
+      );
+    } else if (tempCelsius >= 40) {
+      return (
+        ",rgba(" +
+        (230 + tempCelsius / 4) +
+        "," +
+        (130 - tempCelsius * 2) +
+        "," +
+        (130 - tempCelsius * 2) +
+        ", 1),rgba(255, 200, 152,0.8)"
+      );
+    } else if (tempCelsius >= 25) {
+      return (
+        ",rgba(" +
+        (130 + tempCelsius * 3) +
+        "," +
+        (230 - tempCelsius * 3) +
+        "," +
+        (200 - tempCelsius * 4) +
+        ", 1),rgba(255, 230, 192,0.8)"
+      );
+    } else {
+      return (
+        ",rgba(" +
+        (20 + tempCelsius * 6) +
+        "," +
+        (190 + tempCelsius) +
+        "," +
+        (200 - tempCelsius * 6) +
+        ", 1),rgba(180, 250, 180, 0.8)"
+      );
     }
   }
 
   const handleWeather = async (loc) => {
-    console.log("location", loc);
-    console.log("location", location);
     const d = await API.getWeather(loc);
     setData(d);
   };

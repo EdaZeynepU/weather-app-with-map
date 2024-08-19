@@ -16,7 +16,6 @@ const LocationMarker = ({ setLocation }) => {
       const { lat, lng } = e.latlng;
       setPosition(e.latlng);
       setLocation([Math.round(lat*1000)/1000,Math.round(lng*1000)/1000]);
-      console.log([Math.round(lat*1000)/1000,Math.round(lng*1000)/1000]);
       
     },
   });
@@ -37,7 +36,6 @@ const OpenMap = ({ location, setLocation }) => {
     if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log("hello");
         const coords = [position.coords.latitude, position.coords.longitude]
         setHome(coords)
       },
